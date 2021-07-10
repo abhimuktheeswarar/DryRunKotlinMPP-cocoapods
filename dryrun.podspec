@@ -10,14 +10,7 @@ Pod::Spec.new do |spec|
     spec.static_framework         = true
     spec.libraries                = "c++"
     spec.module_name              = "#{spec.name}_umbrella"
-
-    
-
-    spec.pod_target_xcconfig 	= {'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
-    spec.user_target_xcconfig 	= { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-    spec.pod_target_xcconfig 	= {'EXCLUDED_ARCHS[sdk=watchsimulator*]' => 'arm64'}
-    spec.user_target_xcconfig 	= { 'EXCLUDED_ARCHS[sdk=watchsimulator*]' => 'arm64' }
-
-
+    spec.platforms           	= { :ios => '11', :watchos => '4', :tvos => '11', :osx => '10.13' }
+    spec.pod_target_xcconfig 	= { 'ONLY_ACTIVE_ARCH' => 'YES' }
 
 end
